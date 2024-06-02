@@ -30,6 +30,40 @@ void addFirst(string data[2], int umur){
     tail = newNode;
 }
 
+void addMiddle(string data[2], int umur, int posisi){
+    if (head == NULL)
+    {
+        cout << "buat dulu linkedlistnya" << endl;
+    } else
+    {
+        if (posisi == 1)
+        {
+            cout << "posisi tersebut bukanlah data tengah" << endl;
+        } else
+        {
+            newNode = new circular();
+            newNode -> nama = data[0];
+            newNode -> pekerjaan = data[1];
+            newNode -> umur = umur;
+
+            // transversing
+            int nomor = 1;
+            cur = head;
+            while (nomor < posisi - 1)
+            {
+                cur = cur -> next;
+                nomor++;
+            }
+            newNode -> next = cur -> next;
+            cur -> next = newNode;
+        }
+        
+        
+    }
+    
+    
+}
+
 void addLast(string data[2], int umur){
     newNode = new circular();
     newNode -> nama = data[0];
@@ -44,6 +78,20 @@ void removeFirst(){
     del = head;
     head = head -> next;
     tail -> next = head;
+    delete del;
+}
+
+void removeMiddle(int posisi){
+    // transversing
+    int nomor = 1;
+    cur = head;
+    while (nomor < posisi - 1)
+    {
+        cur = cur -> next;
+        nomor++;
+    }
+    del = cur -> next;
+    cur -> next = del -> next;
     delete del;
 }
 
@@ -91,12 +139,13 @@ void menu(){
     cout << "3. Tambah data akhir" << endl;
     cout << "4. Tampilkan Node" << endl;
     cout << "5. Hapus data awal" << endl;
-    cout << "6. Hapus data akhir" << endl;
+    cout << "6. Hapus data tengah" << endl;
+    cout << "7. Hapus data akhir" << endl;
     cout << "0. keluar" << endl;
 }
 
 int main(){
-    int pilihan;
+    int pilihan, posisi;
  pertanyaan();  
  createSingleCircular(data,umur); 
 do
@@ -110,7 +159,9 @@ do
         addFirst(data, umur);
         break;
     case 2:
-    
+    pertanyaan();
+    cout << "Masukan posisi yang di inginkan : "; cin >> posisi;
+    addMiddle(data,umur,posisi);
     break;
 
     case 3:
@@ -128,6 +179,13 @@ do
     break;
 
     case 6:
+    cout << "Masukan nomor urutan data yang ingin dihapus" << endl; cin >> posisi;
+    removeMiddle(posisi);
+    cout << "data tengah telah terhapus" << endl;
+
+    break;
+
+    case 7:
     removeLast();
     cout << "Data terakhir telah terhapus" << endl;
     break;
