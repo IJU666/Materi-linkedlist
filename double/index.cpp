@@ -3,8 +3,8 @@ using namespace std;
 
 struct mahasiswa
 {
-    string nama, jurusan;
-    int semester;
+    string hari, mataKuliah, jam, namaDosen, ruangan;
+    int sks, waktu = 50;
 
     mahasiswa *prev, *next;
 };
@@ -113,6 +113,7 @@ void removeFirst(){
 }
 
 void removeMiddle(int posisi){
+    // pengecekan data
     if (head == NULL)
     {
         cout << "Data awal kosong" << endl;

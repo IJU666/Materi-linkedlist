@@ -27,7 +27,7 @@ void addFirst(string data[2], int umur){
     newNode -> umur = umur;
     newNode -> next = head;
     tail ->next = newNode; 
-    tail = newNode;
+    head = newNode;
 }
 
 void addMiddle(string data[2], int umur, int posisi){
