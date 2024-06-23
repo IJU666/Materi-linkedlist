@@ -3,7 +3,7 @@ using namespace std;
 
 struct mahasiswa
 {
-    string hari, mataKuliah, jam, namaDosen, ruangan;
+    string nama, jurusan, semester, namaDosen, ruangan;
     int sks, waktu = 50;
 
     mahasiswa *prev, *next;
