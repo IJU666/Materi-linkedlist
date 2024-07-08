@@ -24,11 +24,11 @@ int main(){
 
 
 int num;
-cout << "insert"; cin >> num;
+cout << "insert vertice : "; cin >> num;
 vector<vector<int> > matrix(num, vector<int>(num, 0));
 int numedges;
 int source, destination;
-cout << "masukan jumlah edge"; cin >> numedges;
+cout << "masukan jumlah edge : "; cin >> numedges;
 
 cout << "masukan nilai edge source dan destination" << endl;
 for(int i = 0; i < numedges; i++){
@@ -40,7 +40,7 @@ for(int i = 0; i < numedges; i++){
 	matrix[destination][source] = 1; // UNDIRECTED
 }
 
-cout << "Directed GRaph : " << endl;
+cout << "Directed Graph : " << endl;
 
 	for(int i = 0; i < num; i++){
 		for(int j = 0; j < num; j++){
